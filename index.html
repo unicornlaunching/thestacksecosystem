@@ -13,9 +13,29 @@
             bottom: 20px; /* Distance from the bottom */
             left: 20px; /* Distance from the left */
             width: 300px; /* Width of the iframe */
-            height: 550px; /* Height of the iframe */
+            height: 0; /* Start collapsed */
             border: none; /* Remove border */
-            z-index: 1000; /* Ensure it appears above other content */
+            overflow: hidden; /* Hide overflow */
+            transition: height 0.3s ease; /* Smooth transition for height */
+        }
+
+        /* Expanded state */
+        #ipod-embed.expanded {
+            height: 550px; /* Height when expanded */
+        }
+
+        /* Button styles */
+        #toggleIpod {
+            position: fixed;
+            bottom: 80px; /* Position above the iframe */
+            left: 20px;
+            z-index: 1001; /* Ensure it appears above other content */
+            padding: 10px 15px;
+            background-color: #4CAF50; /* Button color */
+            color: white; /* Text color */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            cursor: pointer; /* Pointer cursor */
         }
     </style>
 </head>
@@ -34,8 +54,9 @@
         <a id="infoLink" target="_blank"></a>
     </div>
 
-    <!-- Embed the iPod HTML -->
-        <!-- <iframe id="ipod-embed" src="ipod.html"></iframe> -->
+    <!-- Toggle button for iPod -->
+    <button id="toggleIpod">Show iPod</button>
+    <iframe id="ipod-embed" src="ipod.html"></iframe>
 
     <script type="text/javascript">
         (function(d, t) {
@@ -49,8 +70,16 @@
             }
             v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
         })(document, 'script');
-      </script>
 
+        // Toggle iPod visibility
+        const toggleIpodButton = document.getElementById('toggleIpod');
+        const ipodEmbed = document.getElementById('ipod-embed');
+
+        toggleIpodButton.addEventListener('click', () => {
+            ipodEmbed.classList.toggle('expanded'); // Toggle the expanded class
+            toggleIpodButton.textContent = ipodEmbed.classList.contains('expanded') ? 'Hide iPod' : 'Show iPod'; // Update button text
+        });
+    </script>
 
     <script type="module" src="script.js"></script>
 </body>
