@@ -6,6 +6,18 @@
     <title>The Stacks Blockchain Ecosystem #DeGrants</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* Add styles for the iframe */
+        #ipod-embed {
+            position: fixed; /* Fixed position to stay in the same place */
+            bottom: 20px; /* Distance from the bottom */
+            left: 20px; /* Distance from the left */
+            width: 300px; /* Width of the iframe */
+            height: 550px; /* Height of the iframe */
+            border: none; /* Remove border */
+            z-index: 1000; /* Ensure it appears above other content */
+        }
+    </style>
 </head>
 <body>
 
@@ -21,6 +33,25 @@
         <p id="infoDescription"></p>
         <a id="infoLink" target="_blank"></a>
     </div>
+
+    <!-- Embed the iPod HTML -->
+    <iframe id="ipod-embed" src="ipod.html"></iframe>
+
+    <script type="text/javascript">
+        (function(d, t) {
+            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            v.onload = function() {
+              window.voiceflow.chat.load({
+                verify: { projectID: '67259e4ec1c6bd772cd8cc98' },
+                url: 'https://general-runtime.voiceflow.com',
+                versionID: 'production'
+              });
+            }
+            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+      </script>
+
+
     <script type="module" src="script.js"></script>
 </body>
 </html>
