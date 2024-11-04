@@ -95,6 +95,7 @@ export const data = {
                 { name: "Stacks Documentation", url: "https://docs.stacks.co/" },
                 { name: "Learn Stacks", url: "https://learn.stacks.org/" },
                 { name: "Clarity Book", url: "https://book.clarity-lang.org/" },
+                { name: "Zero To Clarity", url: "https://x.com/GaryRiger" },
                 { name: "Stacks Community", url: "https://community.stacks.org/" }
             ]
         },
